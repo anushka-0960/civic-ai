@@ -1,0 +1,324 @@
+[
+  {
+    "id": "pm-kisan",
+    "name": "PM Kisan Samman Nidhi",
+    "category": "Agriculture",
+    "description": "A central sector scheme that provides income support to all landholder farmer families across the country to enable them to take care of expenses related to agriculture and allied activities.",
+    "benefits": "₹6,000 per year, transferred in three equal installments of ₹2,000 directly into the bank accounts of the beneficiaries.",
+    "department": "Ministry of Agriculture and Farmers Welfare",
+    "portalUrl": "https://pmkisan.gov.in/",
+    "eligibility": {
+      "minAge": 18,
+      "maxAge": 100,
+      "maxIncome": null,
+      "allowedStates": ["All"],
+      "allowedGenders": ["All"],
+      "allowedCategories": ["All"],
+      "requiredOccupations": ["Farmer"],
+      "landholderOnly": true,
+      "maxLandSizeHectares": 2.0,
+      "incomeTaxPayerExcluded": true
+    },
+    "requiredDocuments": [
+      {
+        "name": "Aadhaar Card",
+        "description": "For identity verification."
+      },
+      {
+        "name": "Landholding Document / RoR",
+        "description": "Record of Rights (Khasra/Khatauni) proving cultivable land ownership."
+      },
+      {
+        "name": "Bank Passbook",
+        "description": "Active bank account copy linked with Aadhaar for DBT."
+      }
+    ],
+    "applicationProcess": [
+      "Visit the official PM-KISAN portal (pmkisan.gov.in).",
+      "Click on the 'New Farmer Registration' link under Farmer Corner.",
+      "Select Rural or Urban Farmer Registration and enter Aadhaar number.",
+      "Fill out personal details, address, land size, and bank credentials.",
+      "Upload land and Aadhaar documents and submit for state approval."
+    ]
+  },
+  {
+    "id": "ayushman-bharat",
+    "name": "Ayushman Bharat PM-JAY",
+    "category": "Healthcare",
+    "description": "The largest health assurance scheme in the world which aims to provide free health cover up to Rs. 5 Lakh per family per year for secondary and tertiary care hospitalization to poor and vulnerable families.",
+    "benefits": "Health insurance coverage up to ₹5,000,000 per family per year, covering pre and post-hospitalization costs.",
+    "department": "Ministry of Health and Family Welfare",
+    "portalUrl": "https://pmjay.gov.in/",
+    "eligibility": {
+      "minAge": 0,
+      "maxAge": 100,
+      "maxIncome": 150000,
+      "allowedStates": ["All"],
+      "allowedGenders": ["All"],
+      "allowedCategories": ["All"],
+      "requiredOccupations": ["All", "Informal Laborer", "Domestic Worker", "Construction Worker", "Daily Wage Earner"],
+      "landholderOnly": false,
+      "maxLandSizeHectares": null,
+      "incomeTaxPayerExcluded": true
+    },
+    "requiredDocuments": [
+      {
+        "name": "Aadhaar Card",
+        "description": "For identity proof."
+      },
+      {
+        "name": "Ration Card",
+        "description": "Proof of family structure and income status."
+      },
+      {
+        "name": "Income Certificate",
+        "description": "Official proof that family income is below threshold limits."
+      }
+    ],
+    "applicationProcess": [
+      "Verify eligibility on the Am I Eligible portal (pmjay.gov.in).",
+      "Visit a nearby Ayushman Mitra kiosk at any empaneled government/private hospital.",
+      "Present Aadhaar Card and Ration Card to the operator for verification.",
+      "Complete biometric registration to obtain your Ayushman Card."
+    ]
+  },
+  {
+    "id": "sukanya-samriddhi",
+    "name": "Sukanya Samriddhi Yojana",
+    "category": "Women & Girl Child",
+    "description": "A small deposit scheme for girl children, launched as a part of the 'Beti Bachao Beti Padhao' campaign, offering tax benefits and high interest rates to secure their education and marriage.",
+    "benefits": "High interest rate (currently 8.2% p.a.) compounding annually, with tax exemptions under Section 80C.",
+    "department": "Department of Posts / Ministry of Finance",
+    "portalUrl": "https://www.indiapost.gov.in/",
+    "eligibility": {
+      "minAge": 0,
+      "maxAge": 10,
+      "maxIncome": null,
+      "allowedStates": ["All"],
+      "allowedGenders": ["Female"],
+      "allowedCategories": ["All"],
+      "requiredOccupations": ["All"],
+      "landholderOnly": false,
+      "maxLandSizeHectares": null,
+      "incomeTaxPayerExcluded": false
+    },
+    "requiredDocuments": [
+      {
+        "name": "Birth Certificate of Girl Child",
+        "description": "Proof of age and gender issued by municipal authority."
+      },
+      {
+        "name": "Parent/Guardian ID Proof",
+        "description": "Aadhaar Card or PAN Card of the primary account operator."
+      },
+      {
+        "name": "Address Proof",
+        "description": "Electricity bill or utility bill of parent/guardian."
+      }
+    ],
+    "applicationProcess": [
+      "Obtain the Sukanya Samriddhi account opening form from a Post Office or bank.",
+      "Fill out details of the girl child and parent/guardian operator.",
+      "Attach girl child's birth certificate and guardian's KYC documents.",
+      "Submit form with a minimum initial deposit of ₹250."
+    ]
+  },
+  {
+    "id": "atal-pension",
+    "name": "Atal Pension Yojana",
+    "category": "Pension & Social Security",
+    "description": "A pension scheme targeted at unorganized sector workers to provide them social security in their old age, offering guaranteed pension amounts based on their subscription contribution age.",
+    "benefits": "Guaranteed minimum monthly pension of ₹1,000 to ₹5,000 after attaining age 60.",
+    "department": "Pension Fund Regulatory and Development Authority (PFRDA)",
+    "portalUrl": "https://www.npscra.nsdl.co.in/",
+    "eligibility": {
+      "minAge": 18,
+      "maxAge": 40,
+      "maxIncome": null,
+      "allowedStates": ["All"],
+      "allowedGenders": ["All"],
+      "allowedCategories": ["All"],
+      "requiredOccupations": ["All", "Informal Laborer", "Self-employed"],
+      "landholderOnly": false,
+      "maxLandSizeHectares": null,
+      "incomeTaxPayerExcluded": true
+    },
+    "requiredDocuments": [
+      {
+        "name": "Aadhaar Card",
+        "description": "Primary identity verification documents."
+      },
+      {
+        "name": "Savings Bank Account",
+        "description": "Mandatory for auto-debit of subscription installments."
+      }
+    ],
+    "applicationProcess": [
+      "Approach the bank branch or post office where your savings account is held.",
+      "Fill out the APY registration form with your preferred pension slab (₹1000 - ₹5000).",
+      "Provide bank account details and authorize auto-debit consent.",
+      "Ensure sufficient balance is maintained in the account for monthly debits."
+    ]
+  },
+  {
+    "id": "pmay-urban",
+    "name": "Pradhan Mantri Awas Yojana (Urban)",
+    "category": "Housing",
+    "description": "An initiative by the Government of India to provide housing for all in urban areas, offering interest subsidies on home loans to families belonging to weaker sections.",
+    "benefits": "Up to ₹2.67 Lakh interest subsidy on home loans under Credit Linked Subsidy Scheme (CLSS).",
+    "department": "Ministry of Housing and Urban Affairs",
+    "portalUrl": "https://pmay-urban.gov.in/",
+    "eligibility": {
+      "minAge": 18,
+      "maxAge": 70,
+      "maxIncome": 1800000,
+      "allowedStates": ["All"],
+      "allowedGenders": ["All"],
+      "allowedCategories": ["All"],
+      "requiredOccupations": ["All"],
+      "landholderOnly": false,
+      "maxLandSizeHectares": null,
+      "incomeTaxPayerExcluded": false
+    },
+    "requiredDocuments": [
+      {
+        "name": "Aadhaar Card",
+        "description": "Required for all family members."
+      },
+      {
+        "name": "Income Certificate / Form 16",
+        "description": "Proof of annual family income classification."
+      },
+      {
+        "name": "Affidavit of No Property Ownership",
+        "description": "A declaration stating no family member owns a pucca house in India."
+      }
+    ],
+    "applicationProcess": [
+      "Access the PMAY-U online portal (pmay-urban.gov.in).",
+      "Select 'Citizen Assessment' and choose the appropriate application category.",
+      "Enter Aadhaar details to verify identity and load the application form.",
+      "Provide income details, bank credentials, and upload files.",
+      "Submit and track application using the generated Application ID."
+    ]
+  },
+  {
+    "id": "mudra-yojana",
+    "name": "Pradhan Mantri Mudra Yojana",
+    "category": "Business & Entrepreneurship",
+    "description": "Provides collateral-free loans to non-corporate, non-farm small and micro enterprises to facilitate credit availability for self-employment and small businesses.",
+    "benefits": "Loans up to ₹10 Lakhs split into Shishu (up to ₹50k), Kishor (₹50k-5L), and Tarun (₹5L-10L) categories without collateral.",
+    "department": "Ministry of Finance",
+    "portalUrl": "https://www.mudra.org.in/",
+    "eligibility": {
+      "minAge": 18,
+      "maxAge": 65,
+      "maxIncome": null,
+      "allowedStates": ["All"],
+      "allowedGenders": ["All"],
+      "allowedCategories": ["All"],
+      "requiredOccupations": ["Entrepreneur", "Business Owner", "Self-employed"],
+      "landholderOnly": false,
+      "maxLandSizeHectares": null,
+      "incomeTaxPayerExcluded": false
+    },
+    "requiredDocuments": [
+      {
+        "name": "Identity and Address Proof",
+        "description": "Aadhaar, Voter ID, or Passport copy."
+      },
+      {
+        "name": "Business Registration Certificate",
+        "description": "Udyam registration or shop license proving ownership."
+      },
+      {
+        "name": "Project Quotation / Business Plan",
+        "description": "Detailed report outlining usage of loan funds."
+      }
+    ],
+    "applicationProcess": [
+      "Prepare a business plan and select loan category (Shishu, Kishor, or Tarun).",
+      "Visit any public, private, or co-operative bank offering Mudra loans.",
+      "Submit the completed application form along with business registration papers.",
+      "Upon evaluation of business viability, the bank sanctions credit limit."
+    ]
+  },
+  {
+    "id": "pm-gkay",
+    "name": "PM Garib Kalyan Anna Yojana",
+    "category": "Food Security",
+    "description": "A food security welfare scheme introduced during the pandemic to provide free food grains to eligible ration card holders to eliminate hunger.",
+    "benefits": "5 kg of free food grains (wheat or rice) per person per month in addition to subsidized grains.",
+    "department": "Department of Food and Public Distribution",
+    "portalUrl": "https://dfpd.gov.in/",
+    "eligibility": {
+      "minAge": 0,
+      "maxAge": 100,
+      "maxIncome": 100000,
+      "allowedStates": ["All"],
+      "allowedGenders": ["All"],
+      "allowedCategories": ["All"],
+      "requiredOccupations": ["All", "Informal Laborer", "Daily Wage Earner", "Unemployed"],
+      "landholderOnly": false,
+      "maxLandSizeHectares": null,
+      "incomeTaxPayerExcluded": true
+    },
+    "requiredDocuments": [
+      {
+        "name": "Ration Card",
+        "description": "Essential document for family headcount validation."
+      },
+      {
+        "name": "Aadhaar Card",
+        "description": "Identity verification document linked to ration database."
+      }
+    ],
+    "applicationProcess": [
+      "Ensure ration card is seeded with Aadhaar for all family members.",
+      "Visit the local Fair Price Shop (ration depot) in your area.",
+      "Complete biometric verification at the point-of-sale (e-POS) terminal.",
+      "Collect the allocated free grain quotient along with regular supplies."
+    ]
+  },
+  {
+    "id": "standup-india",
+    "name": "Stand-Up India Scheme",
+    "category": "Business & Entrepreneurship",
+    "description": "Promotes entrepreneurship at the grassroots level, specifically focusing on economic empowerment of women and Scheduled Caste (SC) or Scheduled Tribe (ST) communities.",
+    "benefits": "Bank loans between ₹10 Lakh and ₹1 Crore for setting up greenfield business enterprises.",
+    "department": "Ministry of Finance",
+    "portalUrl": "https://www.standupmitra.in/",
+    "eligibility": {
+      "minAge": 18,
+      "maxAge": 100,
+      "maxIncome": null,
+      "allowedStates": ["All"],
+      "allowedGenders": ["Female", "All"],
+      "allowedCategories": ["SC", "ST"],
+      "requiredOccupations": ["Entrepreneur"],
+      "landholderOnly": false,
+      "maxLandSizeHectares": null,
+      "incomeTaxPayerExcluded": false
+    },
+    "requiredDocuments": [
+      {
+        "name": "Caste Certificate",
+        "description": "Required to prove SC/ST status (not required for general category women)."
+      },
+      {
+        "name": "Business Plan / Greenfield Project details",
+        "description": "Document explaining the proposed business structure."
+      },
+      {
+        "name": "Address and Identity Proof",
+        "description": "Aadhaar Card and utility bills."
+      }
+    ],
+    "applicationProcess": [
+      "Visit the Stand-Up India portal (standupmitra.in) or go to a partner bank.",
+      "Register as a borrower and fill in project information details.",
+      "Select handholding support if business requires training or preparation.",
+      "Submit loan request for review and complete biometric / physical KYC."
+    ]
+  }
+]
