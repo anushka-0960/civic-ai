@@ -1,6 +1,7 @@
 // app/api/complaint/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { rateLimit } from '@/lib/rate-limit';
+import { generateComplaintLetter } from '@/lib/schemes';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,28 +18,23 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const response = await fetch('http://127.0.0.1:8000/api/complaint', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
+    const letter = generateComplaintLetter({
+      scheme_name: body.scheme_name,
+      issue_type: body.issue_type,
+      user_name: body.user_name,
+      user_contact: body.user_contact,
+      complaint_details: body.complaint_details,
+      department_name: body.department_name,
+      state: body.state,
+      district: body.district
     });
 
-    if (!response.ok) {
-      return NextResponse.json(
-        { error: 'Failed to generate complaint from backend service.' },
-        { status: response.status }
-      );
-    }
-
-    const data = await response.json();
-    return NextResponse.json(data);
+    return NextResponse.json({ letter });
   } catch (error) {
-    console.error('Error calling complaint generator on backend:', error);
+    console.error('Error generating complaint:', error);
     return NextResponse.json(
-      { error: 'CivicAI backend service is currently unreachable.' },
-      { status: 503 }
+      { error: 'Failed to generate complaint letter locally.' },
+      { status: 500 }
     );
   }
 }

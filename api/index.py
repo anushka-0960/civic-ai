@@ -29,6 +29,19 @@ load_dotenv()
 # Initialize FastAPI App
 app = FastAPI(title="CivicAI API Service", version="1.0.0")
 
+# Middleware to rewrite Vercel proxy paths (/api/py/... -> /api/...)
+@app.middleware("http")
+async def rewrite_vercel_proxy_path(request, call_next):
+    path = request.url.path
+    if path.startswith("/api/py"):
+        new_path = path.replace("/api/py", "/api", 1)
+        request.scope["path"] = new_path
+        if "raw_path" in request.scope:
+            request.scope["raw_path"] = new_path.encode("ascii")
+    
+    response = await call_next(request)
+    return response
+
 # Enable CORS for frontend requests
 app.add_middleware(
     CORSMiddleware,

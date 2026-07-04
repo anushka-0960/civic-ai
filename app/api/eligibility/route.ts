@@ -1,6 +1,7 @@
 // app/api/eligibility/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { rateLimit } from '@/lib/rate-limit';
+import { checkEligibility } from '@/lib/schemes';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,28 +18,25 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const response = await fetch('http://127.0.0.1:8000/api/eligibility', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
+    const data = checkEligibility({
+      scheme_id: body.scheme_id,
+      age: Number(body.age),
+      income: Number(body.income),
+      state: body.state,
+      gender: body.gender,
+      category: body.category,
+      occupation: body.occupation,
+      is_landholder: Boolean(body.is_landholder),
+      land_size_hectares: body.land_size_hectares !== undefined && body.land_size_hectares !== null ? Number(body.land_size_hectares) : null,
+      is_income_tax_payer: Boolean(body.is_income_tax_payer)
     });
 
-    if (!response.ok) {
-      return NextResponse.json(
-        { error: 'Failed to verify eligibility from backend service.' },
-        { status: response.status }
-      );
-    }
-
-    const data = await response.json();
     return NextResponse.json(data);
   } catch (error) {
-    console.error('Error calling eligibility checker on backend:', error);
+    console.error('Error checking eligibility:', error);
     return NextResponse.json(
-      { error: 'CivicAI backend service is currently unreachable.' },
-      { status: 503 }
+      { error: 'Failed to verify eligibility profile locally.' },
+      { status: 500 }
     );
   }
 }
