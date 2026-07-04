@@ -146,10 +146,12 @@ export default function AssistantPage() {
         ]);
       } else {
         const errText = await response.text();
+        console.error("Chat API error details:", errText);
         let displayError = "An error occurred while calling the assistant service.";
         
         // Handle Gemini API Key validation failure gracefully in UI
-        if (errText.includes("API key not valid") || errText.includes("INVALID_ARGUMENT")) {
+        const lowerErr = errText.toLowerCase();
+        if (lowerErr.includes("api key") || lowerErr.includes("invalid_argument") || lowerErr.includes("key is missing") || lowerErr.includes("not configured")) {
           displayError = "Configuration Alert: The assistant could not connect to Gemini because a valid API key is missing. Please add a valid `GEMINI_API_KEY` to the `.env` file in the project folder to enable assistant chat.";
         }
 

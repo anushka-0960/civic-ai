@@ -13,7 +13,6 @@ const navLinks = [
   { name: "Welfare Schemes", href: "/schemes" },
   { name: "AI Assistant", href: "/assistant" },
   { name: "Complaint Wizard", href: "/complaint" },
-  { name: "About & Tech", href: "/about" },
 ];
 
 export default function Navigation() {
