@@ -43,6 +43,7 @@ function SchemesContent() {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [selectedState, setSelectedState] = useState("All");
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // Modal Dialogs State
   const [detailsScheme, setDetailsScheme] = useState<Scheme | null>(null);
@@ -65,13 +66,18 @@ function SchemesContent() {
   useEffect(() => {
     async function loadAllSchemes() {
       try {
+        setError(null);
         const response = await fetch("/api/schemes");
         if (response.ok) {
           const data = await response.json();
           setSchemes(data);
+        } else {
+          const errData = await response.json().catch(() => ({}));
+          setError(errData.error || "Failed to fetch schemes from backend service.");
         }
       } catch (error) {
         console.error("Error fetching schemes from Next API:", error);
+        setError("CivicAI backend service is currently unreachable. Please check if the backend service is running.");
       } finally {
         setLoading(false);
       }
@@ -242,8 +248,19 @@ function SchemesContent() {
         </div>
       </div>
 
-      {/* Loading Skeleton Grid */}
-      {loading ? (
+      {/* Loading/Error/Empty States */}
+      {error ? (
+        <div className="text-center py-20 border border-dashed border-destructive/40 rounded-3xl bg-destructive/5 max-w-lg mx-auto w-full flex flex-col items-center gap-3">
+          <XCircle className="h-10 w-10 text-destructive/85" />
+          <h3 className="text-lg font-bold text-foreground">Backend Service Offline</h3>
+          <p className="text-sm text-muted-foreground px-6 leading-relaxed">
+            {error}
+          </p>
+          <Button onClick={() => { setLoading(true); setError(null); window.location.reload(); }} className="mt-2 rounded-xl bg-destructive hover:bg-destructive/90 text-white font-medium shadow-xs">
+            Retry Connection
+          </Button>
+        </div>
+      ) : loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-8">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="h-48 w-full rounded-2xl bg-muted animate-pulse" />

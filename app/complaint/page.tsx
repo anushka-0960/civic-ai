@@ -13,7 +13,8 @@ import {
   Check, 
   Loader2, 
   Landmark,
-  FilePenLine
+  FilePenLine,
+  XCircle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -39,6 +40,7 @@ export default function ComplaintPage() {
   // Schemes database list for select dropdown
   const [schemes, setSchemes] = useState<Scheme[]>([]);
   const [loadingSchemes, setLoadingSchemes] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // Form Fields
   const [userName, setUserName] = useState("");
@@ -60,6 +62,7 @@ export default function ComplaintPage() {
   useEffect(() => {
     async function loadSchemes() {
       try {
+        setError(null);
         const res = await fetch("/api/schemes");
         if (res.ok) {
           const data = await res.json();
@@ -69,9 +72,13 @@ export default function ComplaintPage() {
             setSchemeName(data[0].name);
             setDepartmentName(data[0].department);
           }
+        } else {
+          const errData = await res.json().catch(() => ({}));
+          setError(errData.error || "Failed to fetch schemes from backend service.");
         }
       } catch (error) {
         console.error("Error loading schemes:", error);
+        setError("CivicAI backend service is currently unreachable.");
       } finally {
         setLoadingSchemes(false);
       }
@@ -327,6 +334,15 @@ export default function ComplaintPage() {
                 </div>
               ) : (
                 <div className="space-y-6">
+                  {error && (
+                    <div className="p-4 rounded-xl border border-destructive/30 bg-destructive/5 text-sm flex items-start gap-3">
+                      <XCircle className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
+                      <div className="flex-1 text-muted-foreground">
+                        <span className="font-bold text-foreground block">Unable to load schemes database</span>
+                        {error} Please make sure the backend service is running. You can still manually enter scheme details by choosing the <strong>Custom Scheme</strong> option below.
+                      </div>
+                    </div>
+                  )}
                   {/* Select Scheme */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Select Scheme from Database</label>
